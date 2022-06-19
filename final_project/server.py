@@ -2,7 +2,7 @@ from machinetranslation import translator
 from flask import Flask, render_template, request
 import json
 
-app = Flask("Web Translator")
+app = Flask("Web Translator", static_folder="static")
 
 @app.route("/englishToFrench")
 def englishToFrench():
@@ -16,7 +16,7 @@ def frenchToEnglish():
 
 @app.route("/")
 def renderIndexPage():
-    render_template("intex.html")
+    return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
